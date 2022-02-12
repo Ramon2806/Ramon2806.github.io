@@ -1,0 +1,419 @@
+/* ***************  ASPECTOS GENERALES  *************** */
+
+* {
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box; 
+    -webkit-box-sizing: border-box; /* Chrome */
+    -moz-box-sizing: border-box; /* Safari */
+}
+
+@font-face {
+    font-family: batman;
+    src: url(../fonts/batmfo__.ttf);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    /* Variables en css */
+    --main-text-color: #F7F7F7; 
+    --secondary-text-color: #A4A4A4;
+}
+
+.clearfix:after,
+.row:before, 
+.row:after {
+    content: " "; 
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+ }
+
+ /* ************  ESTRUCTURA DE LOS BLOQUES  ************ */
+
+ .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-container {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.section-reverse {
+    background-color: rgba(0, 0, 0, 0.92);
+    color: var(--main-text-color);
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+}
+
+/* *******************  NAVEGADOR  ******************** */
+
+.navbar {
+    background-color: var(--main-text-color);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 20px 0px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+
+ .navbar > .navbar-list {
+    list-style-type: none;
+    margin: 0;
+    float: right;
+    /* Para resetear y que no haga cosa raras */
+    font-size: 0; 
+}  
+
+.navbar > .navbar-list > .navbar-item {
+    display: inline;
+    font-size: 16px;
+} 
+
+.navbar > .navbar-list > .navbar-item a {
+    padding: 15px 10px;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.9);
+    display: inline-block;
+    transition: all 0.6s linear;
+} 
+
+.navbar > .navbar-list > .navbar-item.active a {
+    color: var(--main-text-color);
+    background-color: var(--secondary-text-color);
+}
+
+.navbar > .navbar-list > .navbar-item a:hover {
+    color: var(--main-text-color);
+    background-color: var(--secondary-text-color);
+}
+
+/* *********************  HEADER  ********************* */
+
+.header > .title-img {
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url(../images/batman.jpg);
+    height: 100vh;
+  
+}
+
+.header > .title-img:hover {
+    background-size: 115% 115%;
+}
+
+.header > .title {
+	position: absolute;
+    top: 65%;
+    width: 100%;
+    text-align: center;
+    font-size: 100px;
+    color: white;
+    font-family: batman;
+    z-index: 1;
+    animation: titleAnimation 1.5s forwards;
+    animation-delay: 0.4s;
+    visibility: hidden;
+}
+
+@keyframes titleAnimation {
+    0% {
+        font-size: 200px;
+    }
+    50% {
+        font-size: 180px;
+    }
+    100% {
+        font-size: 100px;
+        visibility: visible;
+    }
+}
+
+
+
+.header > .title-cite {
+    position: absolute;
+    top: 60%;
+    width: 100%;
+    text-align: center;
+    font-size: 28px;
+    color: white;
+    font-family: batman;
+    opacity: 0;
+    animation: subtitleAnimation 1.5s forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes subtitleAnimation {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* ***************  SECCIÓN QUIÉN SOY  **************** */
+
+.about-me > .batman-video {
+    float: left;
+    max-width: 50%;
+    padding-bottom: 150px;
+}
+
+.about-me > .batman-info {
+    float: right;
+    max-width: 50%;
+}
+
+.batman-info > .batman-description {
+    line-height: 50px;
+    font-size: 24px;
+}
+
+/* ***************  SECCIÓN EQUIPO  **************** */
+
+.team-member-photo img {
+    height: 300px;
+    max-width: 100%;
+    border-radius: 50%;
+}
+
+.bio {
+    margin-top: 50px;
+    padding-right: 50px;
+    color: rgb(133, 190, 228);
+}
+
+.flip {
+    height: 305px;
+    position: relative;
+}
+
+.flip-img {
+    position: absolute;
+    backface-visibility: hidden;
+    /* -webkit-backface-visibility: hidden; */
+    transition: transform 1s;
+}
+
+.back {
+    transform: rotateY(-180deg);
+}
+
+.flip:hover .front {
+    transform: rotateY(-180deg);
+}
+
+.flip:hover .back {
+    transform: rotateY(0);
+}
+
+
+/* ***************  SECCIÓN CONTACTO  ***************** */
+
+#googleMap {
+    height: 400px;
+    
+}
+
+.form {
+    padding: 0 30px;
+}
+
+.form .form-row {
+    padding: 10px;
+}
+
+input {
+    font-size: 12px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 6px;
+}
+
+input[type=button], input[type=submit], button {
+    font-size: 14px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 13px 40px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+
+
+.girar > button[disabled]  {
+    opacity: 0.5;
+    font-size: 32px; 
+    padding: 2px 40px; 
+
+}
+
+
+/* *****************  TABLA  ***************** */
+
+#section-table{
+    padding-top: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead > tr {
+    background-color: rgb(53, 53, 53);
+    color: white;
+}
+
+th {
+    height: 50px;
+}
+
+th, td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+.destacar {
+    background-color: rgb(243, 144, 51);
+    color: white;
+}
+
+/* *****************  SECCIÓN VISOR  ***************** */
+.caja-visor{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+
+
+
+/* **************  SECCIÓN TRANSPORTE  *************** */
+.transport-img {
+
+    height: 215px;
+}
+
+.bloque {
+    display: flex;
+    flex-direction: column;
+}
+
+.caja-titulo {
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.caja-vehiculos {
+    display: flex;
+    order: 1;
+    flex-direction: row;
+}
+
+.transport-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 580px;
+}
+
+.uno{
+    background-color: rgba(220,220,220, 0.2);
+    order: 2;
+}
+
+.uno > img {
+    order: -1;
+}
+
+.tres {
+    order: 3;
+    background-color: rgba(220,220,220, 0.8);
+}
+
+.dos {
+    background-color: rgba(220,220,220, 0.8);  
+}
+
+.informacion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+}
+
+
+/* *******************  SECCIÓN JUEGO  ********************** */
+
+.titulo {
+    text-align: center;
+    color: white;
+    padding: 20px;
+    font-size: 25px;
+}
+
+.carta {
+    position: relative;
+    width: 190px;
+    left: 100px;
+    margin-left: -75px;
+}
+
+#computadora-cartas, #jugador-cartas {
+    height: 290px;
+}
+
+button[disabled] {
+    opacity: 0.5;
+}
+
+#btnNuevo {
+    background-color: red;
+}
+
+#btnPedir {
+     background-color: royalblue;
+}
+#btnDetener {
+    background-color: royalblue;
+}
+
+
+/* *******************  FOOTER  ********************** */
+
+.footer {
+    background-color: rgba(0, 0, 0, 0.92);
+    color: var(--main-text-color);
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
